@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles.css"> 
+    <title>Erik's Page</title>
+    <style>
+        nav {
+        background-color: #333;
+        color: white; 
+         }
+         nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .content-box {
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            padding: 20px;
+            color: white;
+            text-align: center;
+            max-width: 70%;
+            margin: 0 auto;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+            color: white;
+        }
+
+        .image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .image img {
+            max-width: 60%;
+            height: auto;
+            border-radius: 10px; 
+            mask-image: linear-gradient(to bottom, transparent, black);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('Home') }}">Home</a></li>
+            <li><a href="{{ url_for('predict') }}">Predict</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('Projects') }}">Projects</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="content-box">
+            <h1>Hi, I'm Erik</h1>
+            <p>I'm a former control system engineer who is ready to <br> look towards a new adventure in data science.</p>
+        </div>
+        <div class="image">
+            <img src="{{ url_for('static', filename='erik-photo.png') }}"  alt="Erik's Photo">
+        </div>
+    </div>
+</body>
+</html>

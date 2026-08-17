@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles.css"> 
+  <title>New Projects</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<style>
+    nav {
+    background-color: #333;
+    color: white; 
+    }
+    nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    }
+
+    nav ul li {
+        margin-right: 20px;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <ul>
+        <li><a href="{{ url_for('Home') }}">Home</a></li>
+        <li><a href="{{ url_for('predict') }}">Predict</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('Projects') }}">Projects</a></li>
+    </ul>
+</nav>
+    
+ <div class="login">
+	<h1>Baseball Pitch Strategy Clustering</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('Projects')}}"method="post">
+      <input type="text" name="pitcher_id" placeholder="pitcher_id" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Cluster</button>
+    </form>
+
+   <br>
+   <br>
+   
+   
+   <img src = {{cluster_url}} alt = "no cluster">
+   <img src="{{ url_for('static', filename='my_cluster_plot.png') }}"  alt="Cluster Photo">
+ </div>
+
+
+</body>
+</html>

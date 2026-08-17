@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <link rel="stylesheet" href="/static/styles.css"> 
+        <title>Resume</title>
+        <style type="text/css">
+            nav {
+            background-color: #333;
+            color: white; 
+            }
+            nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            }
+
+            nav ul li {
+                margin-right: 20px;
+            }
+
+            nav ul li a {
+                text-decoration: none;
+                color: white;
+            }
+            body {
+                font-family: Calibri, sans-serif;
+                text-align: center;
+            }
+            .header {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            .section {
+                
+                margin-top: 30px;
+                text-align: left; /* Reset text alignment for sections */
+                display: inline-block;
+                width: 80%; /* Adjust the width as needed */
+            }
+            h2 {
+                font-size: 18pt;
+            }
+            h3 {
+                font-size: 16pt;
+            }
+            h4 {
+                font-size: 14pt;
+                font-weight: bold;
+            }
+            ul {
+                list-style-type: disc;
+                margin-left: 40px;
+            }
+            .name {
+                font-size: 1.2em;
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
+            .contact {
+                margin-top: 5px;
+            }
+        </style>
+    </head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('Home') }}">Home</a></li>
+            <li><a href="{{ url_for('predict') }}">Predict</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('Projects') }}">Projects</a></li>
+        </ul>
+    </nav>
+    <div class="header">
+        <div class="name">Erik Wagner</div>
+        <div class="contact">
+            <p>18366 Lahey Street</p>
+            <p>Porter Ranch, California 91326</p>
+            <p>(818) 399-8250</p>
+            <p>Erikwagner3@gmail.com</p>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>SUMMARY:</h2>
+        <p>I am a former mechanical engineer who has had a variety of opportunities in my field of work and is looking for my next opportunity while pursuing a M.S. in Data Science.</p>
+    </div>
+
+    <div class="section">
+        <h2>EDUCATION:</h2>
+        <p><b>California State University at Northridge</b> – Northridge, California - <i>May 2015</i><br>
+        Bachelor of Science in Mechanical Engineering</p>
+        <p><b>Eastern University</b> - <i>October 2022-Present</i><br>
+        M.S. Data Science</p>
+    </div>
+
+    <div class="section">
+        <h2>SKILLS & QUALIFICATIONS:</h2>
+        <ul>
+            <li>Experienced in Microsoft Office, most notably MS Excel including visual basic, Python, R, Tableau VB.net, LabVIEW, AutoCAD, SolidWorks, and MATLAB</li>
+            <li>Experience using and maintaining various model CNC machines</li>
+            <li>Work in developing automation techniques for vertical mills</li>
+            <li>Knowledge of Java, and C</li>
+            <li>Extensive work with autonomous systems</li>
+            <li>Knowledgeable in Mechanical Engineering Sciences: Strength of Materials, Dynamics, Vibratory Motion, Machine Design, and Autonomous Mobile Robots</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>EXPERIENCE:</h2>
+
+        <h3>Automated Manufacturing - Simi Valley, California September 2017-June 2022</h3>
+        <h4>Mechanical Engineer</h4>
+        <ul>
+            <li>Daily work developing automated systems to cut and polish computer chips using vertical mill</li>
+            <li>Work with customers to ensure satisfaction with automation solutions</li>
+            <li>Work with various CNC machines</li>
+            <li>Wiring and soldering for various electrical systems</li>
+        </ul>
+
+        <h3>Oviatt Library - Northridge, California January 2012-June 2015</h3>
+        <h4>Learning Commons Technology Student Supervisor</h4>
+        <ul>
+            <li>Daily work maintaining 200 PCs and 20 Macs, including software, hardware, and networking issues</li>
+            <li>Extensive work with MS Excel and other Office products, including assisting patrons with work</li>
+            <li>Trained new student employees and student supervisors every semester</li>
+            <li>Updated training methods for Learning Commons Technology</li>
+            <li>Created method of procedures for the office</li>
+        </ul>
+    </div>
+
+</body>
+</html>
