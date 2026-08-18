@@ -58,6 +58,7 @@ def predict():
         plt.colorbar()
         plt.title(f"The best pitch type and zone is:\n {best_pitch_type} {pitch_type_associated} in zone: {best_zone}")
         plt.savefig('static/my_heatmap_plot.png')
+        plt.close()
     else:
         return render_template('predict.html')
 

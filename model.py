@@ -158,12 +158,14 @@ def data_prep(sorted_pitcher_data, sorted_batter_data):
     combined_data['inning'] = combined_data['inning'].astype(int)
     combined_data['pitcher'] = combined_data['pitcher'].astype(int)
     
-    ### Multiply by 1000 because I need integers and delta_run_exp is a decimal
-    combined_data = combined_data.multiply(1000)
-    
-    #now convert these to int
-    combined_data['delta_run_exp_x'] = combined_data['delta_run_exp_x'].astype(int)
-    combined_data['delta_run_exp_y'] = combined_data['delta_run_exp_y'].astype(int)
+    ### Scale only the run expectancy values by 1000
+    combined_data['delta_run_exp_x'] = (
+    combined_data['delta_run_exp_x'] * 1000
+    ).round().astype('int64')
+
+    combined_data['delta_run_exp_y'] = (
+        combined_data['delta_run_exp_y'] * 1000
+    ).round().astype('int64')
     
     return combined_data, pitch_mapping
 
@@ -281,6 +283,7 @@ def get_best_zone_and_pitch_type(model, features, ordinal_encoder, combined_data
     plt.ylabel('Predicted Values')
     plt.grid(True)
     plt.savefig('static/my_prediction_plot.png')
+    plt.close()
      
     
     #get best by inverse_transforming the pitch type and then dividing by 1000, return pitch name also
