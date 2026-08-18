@@ -1,76 +1,86 @@
 <!DOCTYPE html>
 <html >
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/static/styles.css"> 
-  <title>ML Project</title>
-  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-   <style>
-      nav {
-      background-color: #333;
-      color: white; 
-      }
-      nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      }
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="/static/styles.css">
+ <title>ML Project</title>
+ <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'
+type='text/css'>
+ <style>
+ nav {
+ background-color: #333;
+ color: white;
+ }
+ nav ul {
+ list-style: none;
+ padding: 0;
+ margin: 0;
+ display: flex;
+ }
+ nav ul li {
+ margin-right: 20px;
+ }
+ nav ul li a {
+ text-decoration: none;
+ color: white;
+ }
+ </style>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet'
+type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet'
+type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300'
+rel='stylesheet' type='text/css'>
 
-      nav ul li {
-          margin-right: 20px;
-      }
-
-      nav ul li a {
-          text-decoration: none;
-          color: white;
-      }
-    </style>
-<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-  
 </head>
-
 <body>
-  <nav>
-    <ul>
-        <li><a href="{{ url_for('Home') }}">Home</a></li>
-        <li><a href="{{ url_for('predict') }}">Predict</a></li>
-        <li><a href="{{ url_for('about') }}">About</a></li>
-        <li><a href="{{ url_for('Projects') }}">Projects</a></li>
-    </ul>
+ <nav>
+ <ul>
+ <li><a href="{{ url_for('Home') }}">Home</a></li>
+ <li><a href="{{ url_for('predict') }}">Predict</a></li>
+ <li><a href="{{ url_for('about') }}">About</a></li>
+ <li><a href="{{ url_for('Projects') }}">Projects</a></li>
+ </ul>
 </nav>
-    
+
  <div class="login">
-	<h1>Baseball Pitch Strategy Predictor</h1>
+<h1>Baseball Pitch Strategy Predictor</h1>
+ <!-- Main Input For Receiving Query to our ML -->
+ <form action="{{ url_for('predict')}}"method="post">
+ <input type="text" name="pitcher_name" placeholder="pitcher_name"
+required="required" />
+ <input type="text" name="batter_name" placeholder="batter_name"
+required="required" />
+ <input type="text" name="balls_encoded" placeholder="balls_encoded"
+required="required" />
+ <input type="text" name="strikes_encoded" placeholder="strikes_encoded"
+required="required" />
+ <input type="text" name="inning_encoded" placeholder="inning_encoded"
+required="required" />
+ <input type="text" name="outs_encoded" placeholder="outs_encoded"
+required="required" />
+ <input type="text" name="on_3b_encoded" placeholder="on_3b_encoded"
+required="required" />
+ <input type="text" name="on_2b_encoded" placeholder="on_2b_encoded"
+required="required" />
+ <input type="text" name="on_1b_encoded" placeholder="on_1b_encoded"
+required="required" />
 
-     <!-- Main Input For Receiving Query to our ML -->
-    <form action="{{ url_for('predict')}}"method="post">
-      <input type="text" name="pitcher_name" placeholder="pitcher_name" required="required" />
-      <input type="text" name="batter_name" placeholder="batter_name" required="required" />
-      <input type="text" name="balls_encoded" placeholder="balls_encoded" required="required" />
-      <input type="text" name="strikes_encoded" placeholder="strikes_encoded" required="required" />
-      <input type="text" name="inning_encoded" placeholder="inning_encoded" required="required" />
-      <input type="text" name="outs_encoded" placeholder="outs_encoded" required="required" />
-      <input type="text" name="on_3b_encoded" placeholder="on_3b_encoded" required="required" />
-      <input type="text" name="on_2b_encoded" placeholder="on_2b_encoded" required="required" />
-      <input type="text" name="on_1b_encoded" placeholder="on_1b_encoded" required="required" />
-		
+ <button type="submit" class="btn btn-primary btn-block
+btn-large">Predict</button>
+ </form>
+ <br>
+ <br>
+ {{ prediction_message }}
+ {% if heatmap_url %}
+    <img src="{{ heatmap_url }}" alt="Heatmap">
+{% endif %}
 
-        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
-    </form>
+{% if plot_url %}
+    <img src="{{ plot_url }}" alt="Chart">
+{% endif %}
 
-   <br>
-   <br>
-   {{ prediction_message }}
-   <img src = {{heatmap_url}} alt = "no heatmap">
-    <img src = {{plot_url}} alt = "no chart">
-    
  </div>
-
-
 </body>
 </html>

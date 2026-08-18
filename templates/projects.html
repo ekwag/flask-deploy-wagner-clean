@@ -56,7 +56,9 @@
    <br>
    
    
-   <img src = {{cluster_url}} alt = "no cluster">
+   {% if cluster_url %}
+    <img src="{{ cluster_url }}" alt="Cluster plot">
+   {% endif %}
    <img src="{{ url_for('static', filename='my_cluster_plot.png') }}"  alt="Cluster Photo">
  </div>
 
