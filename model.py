@@ -2,35 +2,20 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from sklearn.cluster import KMeans
-from pybaseball import statcast
-from pybaseball import pitching_stats
-from pybaseball import batting_stats
+
 from pybaseball import statcast_batter
-from pybaseball import batting_stats_bref
 from pybaseball import statcast_pitcher
 from pybaseball.statcast_pitcher_spin import statcast_pitcher_spin
 from pybaseball import playerid_lookup
-from sklearn.preprocessing import StandardScaler
-from sklearn.decomposition import PCA
-from sklearn.cluster import AgglomerativeClustering
-from sklearn.mixture import GaussianMixture
-from sklearn.cluster import DBSCAN
+
+from sklearn.cluster import KMeans
 from sklearn.manifold import TSNE
-from tensorflow import keras
-from keras.preprocessing import sequence
-from keras.models import Sequential
-from keras.layers import Dense, Embedding
-from keras.optimizers import Adam
-from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder, OrdinalEncoder
-from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
-import xgboost as xgb
-from sklearn.metrics import accuracy_score, precision_score, recall_score, mean_squared_error, mean_absolute_error
-import sys
-from sklearn.linear_model import LinearRegression, Lasso
-from catboost import CatBoostRegressor
-import seaborn as sns
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import mean_squared_error, mean_absolute_error
+
 plt.style.use('ggplot')
 
 def spin_data(pitcher_id):
